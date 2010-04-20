@@ -11,11 +11,9 @@ h2. Requirements
 
 h2. Usage
 
- @acts_as_paginable(:scopes => [ :attribute1, :attribute2 ])@
-
- @params = { "bills_id" => "10", "customer_id" => "3", :page => "4"}@
-
- @MyModel.atq_paginate(params, 10)@
+@acts_as_paginable(:scopes => [ :attribute1, :attribute2 ])@
+@params = { "bills_id" => "10", "customer_id" => "3", :page => "4"}@
+@MyModel.atq_paginate(params, 10)@
 
 Results in
 

@@ -10,6 +10,7 @@ begin
     gem.email = "fischer@avarteq.de"
     gem.homepage = "http://github.com/avarteq/acts_as_paginable"
     gem.authors = ["Julian Fischer"]
+    gem.add_dependency "will_paginate"
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

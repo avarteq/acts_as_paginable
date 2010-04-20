@@ -28,3 +28,4 @@ solr/
 solr/*
 sunspot-solr.pid
 rerun.txt
+pkg/*

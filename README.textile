@@ -11,10 +11,10 @@ h2. Requirements
 
 h2. Usage
 
-@acts_as_paginable(:scopes => [ :attribute1, :attribute2 ])
+bc. acts_as_paginable(:scopes => [ :attribute1, :attribute2 ])
 params = { "bills_id" => "10", "customer_id" => "3", :page => "4"}
-MyModel.atq_paginate(params, 10)@
+MyModel.atq_paginate(params, 10)
 
 Results in
 
- @MyModel.scoped_by_bills_id("10").scoped_by_customer_id("3").paginate(:page => "4", :per_page => "10")@
+bc. MyModel.scoped_by_bills_id("10").scoped_by_customer_id("3").paginate(:page => "4", :per_page => "10")

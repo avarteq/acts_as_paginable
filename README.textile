@@ -1,0 +1,7 @@
+h1. acts_as_paginable
+
+h2. Motivation
+
+h2. Requirements
+
+* Ruby on Rails

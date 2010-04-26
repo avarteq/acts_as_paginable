@@ -3,6 +3,9 @@ module Avarteq
 
     def self.included(base)      
       base.extend(ClassMethods)
+      
+      # Named scope so that records can be ordered like this: MyClass.scoped_by_attr.order("id DESC")
+      base.send(:named_scope, :order, lambda {|order| { :order => order } })
     end
 
     module ClassMethods
@@ -16,7 +19,7 @@ module Avarteq
         self.paginable_scopes         = options[:scopes] || []
         self.paginable_scope_prefix   = options[:scope_prefix] || "scoped_by_"
         self.paginable_params_suffix  = options[:params_suffix] || ""
-      end
+      end      
 
       def atq_paginate(params, per_page)
         result = self
@@ -28,8 +31,10 @@ module Avarteq
             result  = result.send(scope, args)
           end
         end
+        result = result.order(params[:order]) if params[:order] && !params[:order].empty?
         result.paginate(:page => params[:page], :per_page => per_page)
       end
+      
     end
   end
 end

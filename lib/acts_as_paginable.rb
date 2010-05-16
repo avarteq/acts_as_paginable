@@ -21,7 +21,14 @@ module Avarteq
         self.paginable_params_suffix  = options[:params_suffix] || ""
       end      
 
+      # Chains scopes as given by params and returns the paginated result.
       def atq_paginate(params, per_page)
+        result = chain_scopes(params, per_page)
+        result.paginate(:page => params[:page], :per_page => per_page)
+      end
+      
+      # Chains scopes as given by params but does not invoke paginate.
+      def chain_scopes(params, per_page)
         result = self
         self.paginable_scopes.each do |scope_name|
           param_name = scope_name.to_s + self.paginable_params_suffix.to_s          
@@ -32,9 +39,8 @@ module Avarteq
           end
         end
         result = result.order(params[:order]) if params[:order] && !params[:order].empty?
-        result.paginate(:page => params[:page], :per_page => per_page)
+        result
       end
-      
     end
   end
 end

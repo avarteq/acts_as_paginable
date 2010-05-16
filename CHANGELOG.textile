@@ -1,8 +1,23 @@
+h1. 0.3.0
+
+Separated scope chaining from invokation of paginate. This allows you to invoke further methods on the chained scope such as:
+
+bc. Bill.chain_scopes(params, per_page).sum("billing_positions.amount")
+
+So
+
+bc. Bill.atq_paginate(params, per_page).paginate
+
+is now defined as:
+
+bc. chain_scopes(:page => params[:page], :per_page => per_page).paginate(:page => params[:page], :per_page => per_page)
+
 h1. 0.2.1
- - Now supports params[:order] passed to the corresponding named_scope
+
+* Now supports params[:order] passed to the corresponding named_scope
 
 h1. 0.2.0
 
- - named_scope "order" to be able to order records like this:
+* named_scope "order" to be able to order records like this:
 
 bc. MyClass.scoped_by_attr.order("id DESC")

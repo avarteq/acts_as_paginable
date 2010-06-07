@@ -5,7 +5,7 @@ module Avarteq
       base.extend(ClassMethods)
       
       # Named scope so that records can be ordered like this: MyClass.scoped_by_attr.order("id DESC")
-      base.send(:named_scope, :order, lambda {|order| { :order => order } })
+      #base.send(:scope, :order, lambda {|order| { :order => order } })
     end
 
     module ClassMethods

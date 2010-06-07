@@ -1,6 +1,10 @@
+h1 0.4.0
+
+* Rails 3 compatability.
+
 h1. 0.3.0
 
-Separated scope chaining from invokation of paginate. This allows you to invoke further methods on the chained scope such as:
+* Separated scope chaining from invokation of paginate. This allows you to invoke further methods on the chained scope such as:
 
 bc. Bill.chain_scopes(params, per_page).sum("billing_positions.amount")
 
